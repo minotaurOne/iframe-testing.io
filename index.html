@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click Counter with Iframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; 
+        }
+        .counter-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button-counter {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+        }
+        .counter-display {
+            font-size: 20px;
+            margin: 10px;
+        }
+        iframe {
+            border: 1px solid #1adf45;
+            background-color: #e0e0e0;
+            width: 800px;
+            height: 800px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <button id="clickButton" class="button-counter">outside</button>
+        <div id="clickCounter" class="counter-display">0</div>
+    </div>
+
+    <iframe id="boxid1" name="boxname1" src="frames/mainframe.html" title="Iframe Example"></iframe>
+
+    <script>
+        let counter = 0;
+        const button = document.getElementById('clickButton');
+        const counterDisplay = document.getElementById('clickCounter');
+
+        button.addEventListener('click', () => {
+            counter++;
+            counterDisplay.textContent = counter;
+        });
+    </script>
+</body>
+</html>

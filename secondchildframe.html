@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+        <html lang='en'>
+        <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    margin: 0;
+                    background-color: #e5a9a9fc;
+                }
+                .counter-container {
+                    text-align: center;
+                }
+                .button-counter {
+                    font-size: 20px;
+                    padding: 10px 20px;
+                    margin: 10px;
+                }
+                .counter-display {
+                    font-size: 20px;
+                    margin: 10px;
+                }
+                .iframe-details {
+                    font-size: 10px;
+                    margin-top: 20px;
+                }
+                #grandchildboxid1 {
+                    border: 1px solid #d40e0e;
+                    background-color: #898282fc; 
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 5px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class='counter-container'>
+                <button id='clickButtonFarInside2' class='button-counter'>far inside 2</button>
+                <div id='clickCounterFarInside2' class='counter-display'>0</div>
+                <div class='iframe-details'>
+                    <div>ID: childboxid2</div>
+                    <div>Name: childboxname2</div>
+                    <div>Index: 3</div>
+                </div>
+            </div>
+
+            <iframe id="grandchildboxid1" name="grandchildboxname1" src="grandchildframe.html" title="Iframe4 Example"></iframe>
+
+            <script>
+                let counterFarInside2 = 0;
+                const buttonFarInside2 = document.getElementById('clickButtonFarInside2');
+                const counterDisplayFarInside2 = document.getElementById('clickCounterFarInside2');
+
+                buttonFarInside2.addEventListener('click', () => {
+                    counterFarInside2++;
+                    counterDisplayFarInside2.textContent = counterFarInside2;
+                });
+            </script>
+        </body>
+        </html>
