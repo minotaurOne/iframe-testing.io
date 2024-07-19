@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+        <html lang='en'>
+        <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    margin: 0;
+                    background-color: #ea70ecfc;
+                }
+                .counter-container {
+                    text-align: center;
+                }
+                .button-counter {
+                    font-size: 20px;
+                    padding: 10px 20px;
+                    margin: 10px;
+                }
+                .counter-display {
+                    font-size: 20px;
+                    margin: 10px;
+                }
+                .iframe-details {
+                    font-size: 10px;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class='counter-container'>
+                <button id='clickButtonFarInside3' class='button-counter'>core</button>
+                <div id='clickCounterFarInside3' class='counter-display'>0</div>
+                <div class='iframe-details'>
+                    <div>ID: grandchildboxid1</div>
+                    <div>Name: grandchildboxname1</div>
+                    <div>Index: 4</div>
+                </div>
+            </div>
+
+            <script>
+                let counterFarInside3 = 0;
+                const buttonFarInside3 = document.getElementById('clickButtonFarInside3');
+                const counterDisplayFarInside3 = document.getElementById('clickCounterFarInside3');
+
+                buttonFarInside3.addEventListener('click', () => {
+                    counterFarInside3++;
+                    counterDisplayFarInside3.textContent = counterFarInside3;
+                });
+            </script>
+        </body>
+        </html>
