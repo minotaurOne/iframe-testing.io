@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button States and Counters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .container div {
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .disabled {
+            background-color: grey;
+            color: white;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+        .button1 {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button2 {
+            background-color: #2196F3;
+            color: white;
+        }
+        .counter {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <input type="checkbox" id="toggleDisplay" onclick="toggleDisplay()"> Show/Hide Button 1
+            <input type="checkbox" id="toggleEnable" onclick="toggleEnable()"> Enable/Disable Button 2
+        </div>
+
+        <div>
+            <button id="button1" class="button1" onclick="incrementCounter('counter1')" style="display: none;">Button 1</button>
+            <span id="counter1" class="counter">0</span> clicks
+        </div>
+
+        <div>
+            <button id="button2" class="button2 disabled" onclick="incrementCounter('counter2')">Button 2</button>
+            <span id="counter2" class="counter">0</span> clicks
+        </div>
+    </div>
+
+    <script>
+        function toggleDisplay() {
+            const button1 = document.getElementById('button1');
+            if (button1.style.display === 'none') {
+                button1.style.display = 'inline';
+            } else {
+                button1.style.display = 'none';
+            }
+        }
+
+        function toggleEnable() {
+            const button2 = document.getElementById('button2');
+            button2.classList.toggle('disabled');
+        }
+
+        function incrementCounter(counterId) {
+            const counter = document.getElementById(counterId);
+            counter.textContent = parseInt(counter.textContent) + 1;
+        }
+    </script>
+
+</body>
+</html>
