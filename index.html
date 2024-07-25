@@ -57,9 +57,6 @@
         button.addEventListener('click', () => {
             counter++;
             counterDisplay.textContent = counter;
-        });
-
-        button.addEventListener('click', () => {
             let text;
             let person = prompt("Please enter your name:", "");
             if (person == null || person == "") {
@@ -69,6 +66,10 @@
             }
             document.getElementById("demo").innerHTML = text;
         });
+
+        // button.addEventListener('click', () => {
+            
+        // });
 
         function myFunction() {
           
