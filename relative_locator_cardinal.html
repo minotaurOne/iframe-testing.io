@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Glow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0; /* Light background color for contrast */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px; /* Increased vertical spacing */
+        }
+        .button-row {
+            display: flex;
+            gap: 30px; /* Increased horizontal spacing */
+            align-items: center;
+        }
+        .button-container button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(135deg, #4a90e2, #0056b3); /* Gradient background */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease-in-out;
+        }
+        .button-container button:hover {
+            transform: scale(1.05);
+        }
+        .glow {
+            animation: glow-animation 2s forwards;
+        }
+        @keyframes glow-animation {
+            0% {
+                box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.8); /* Red glow */
+            }
+            20% {
+                box-shadow: 0 0 15px 5px rgba(255, 127, 0, 0.8); /* Orange glow */
+            }
+            40% {
+                box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.8); /* Yellow glow */
+            }
+            60% {
+                box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.8); /* Green glow */
+            }
+            80% {
+                box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.8); /* Cyan glow */
+            }
+            100% {
+                box-shadow: 0 0 15px 5px rgba(0, 0, 255, 0.8); /* Blue glow */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="login-top" class="glow-color1">Login</button>
+        <div class="button-row">
+            <div>
+                <button id="login-left" class="glow-color2">Login</button>
+            </div>
+            <button id="submit" class="glow-color3">Submit</button>
+            <div>
+                <button id="login-right" class="glow-color4">Login</button>
+            </div>
+        </div>
+        <button id="login-bottom" class="glow-color5">Login</button>
+    </div>
+
+    <script>
+        // Function to add glow effect
+        function addGlowEffect(button) {
+            button.classList.add('glow');
+            setTimeout(() => {
+                button.classList.remove('glow');
+            }, 2000); // Glow effect duration
+        }
+
+        // Get elements
+        const loginTopButton = document.getElementById('login-top');
+        const submitButton = document.getElementById('submit');
+        const loginBottomButton = document.getElementById('login-bottom');
+        const loginLeftButton = document.getElementById('login-left');
+        const loginRightButton = document.getElementById('login-right');
+
+        // Add event listeners
+        loginTopButton.addEventListener('click', () => addGlowEffect(loginTopButton));
+        submitButton.addEventListener('click', () => addGlowEffect(submitButton));
+        loginBottomButton.addEventListener('click', () => addGlowEffect(loginBottomButton));
+        loginLeftButton.addEventListener('click', () => addGlowEffect(loginLeftButton));
+        loginRightButton.addEventListener('click', () => addGlowEffect(loginRightButton));
+    </script>
+</body>
+</html>
